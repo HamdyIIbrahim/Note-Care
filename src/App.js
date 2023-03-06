@@ -1,0 +1,20 @@
+import React from "react";
+import Home from "./components/home";
+import { Route, Routes } from "react-router-dom";
+import Createnote from "./components/createnote";
+import Login from "./components/login";
+import Signup from "./components/signup";
+function App() {
+  return (
+    <div className="appContainer">
+      <Routes>
+        <Route exist path="/" element={<Home />}></Route>
+        <Route path="/createnote" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
