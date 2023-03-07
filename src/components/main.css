@@ -19,10 +19,13 @@ Link,button {
 .appContainer {
   width: 100vw;
   height: 100vh;
+  display: flex;
 }
 .homeContainer {
   display: flex;
-  flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
 }
 .slideContainer {
   height: 100vh;
@@ -215,4 +218,10 @@ label{
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+}
+.linklogo,.linklogo:visited ,.linklogo:active,.linklogo:hover{
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bolder;
+  color:var(--background-color)
 }

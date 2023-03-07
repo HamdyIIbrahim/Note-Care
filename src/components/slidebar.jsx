@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Slidebar() {
   return (
     <div className="slideContainer">
-      <h2>Note Care</h2>
+      <h2><Link to="/" className="linklogo">Note Care</Link></h2>
         <Link to="/createnote">
         <svg
           xmlns="http://www.w3.org/2000/svg"

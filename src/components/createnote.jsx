@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Searchbar from "./searchbar";
 
 function Createnote() {
   const [title, setTitle] = useState("");
@@ -21,7 +22,9 @@ function Createnote() {
   }
 
 return (
-  <div className="newNoteContainer">
+  <div className="mainContainer">
+      <Searchbar />
+      <div className="newNoteContainer">
     <form onSubmit={confirm}>
       <label>Title : </label>
       <input
@@ -45,6 +48,7 @@ return (
         Save
       </button>
     </form>
+  </div>
   </div>
 );
 }

@@ -4,6 +4,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Note = require("./models/note");
 const port = process.env.PORT || 5000;
+const User = require('./models/user');
+const bcrypt = require('bcrypt');
+
+const saltRounds = 10;
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +32,23 @@ app.post("/createnote", async (req, res) => {
     });
     res.json({ noteDoc });
 });
+
+app.post("/signup",async (req,res)=>{
+    const {email ,password}=req.body;
+    try {
+        const userDoc = await User.create({
+            email,
+            password:bcrypt.hashSync(password, saltRounds),
+        })
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
+app.post('/login',async (req,res)=>{
+    const {email,password}=req.body;
+    await  User.findOne()
+
+})
 
 app.listen(port);
 //0MVis9VgS2cA6KFa
