@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Searchbar() {
   return (
     <div className="searchContainer">
-      <div>
+      <div className="searchContainer2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

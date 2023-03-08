@@ -39,7 +39,7 @@ function Signup() {
         body: JSON.stringify({ email, password }),
       })
         .then(() => {
-          Navigate("/");
+          Navigate("/login");
         })
         .catch((error) => {
           console.log(error);
@@ -69,6 +69,7 @@ function Signup() {
           <label>Password</label>
           <input
             name="password"
+            type='password'
             placeholder="Password"
             className="input"
             value={password}
@@ -77,6 +78,7 @@ function Signup() {
           <label>Confirm Password</label>
           <input
             name="password"
+            type='password'
             placeholder="Password"
             className="input"
             value={passwordConfirm}

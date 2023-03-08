@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Note() {
+function Note({title}) {
 const date = new Date();
 
   return (
     <div className="noteContainer">
-      <h2>Note Title</h2>
+      <h2>{title}</h2>
         
       <div className="noteFooter">
         <h5>{date.toDateString().replaceAll(" ",",")}</h5>

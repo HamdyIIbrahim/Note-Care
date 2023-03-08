@@ -4,6 +4,7 @@ import Searchbar from "./searchbar";
 
 
 function Home() {
+ 
   return (
     <div className="homeContainer">
       <div className="mainContainer">

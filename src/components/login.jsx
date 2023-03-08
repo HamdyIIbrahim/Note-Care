@@ -8,31 +8,30 @@ function Login() {
     const Navigate = useNavigate();
     const validateData = (e) => {
         e.preventDefault();
-        const email = email.trim();
+        const Email = email.trim();
         const Password = password.trim();
-        if (email === "") {
+        if (Email === "") {
             toast.error("UserName is Required");
         }
-        if(password === ''){
+        if(Password === ''){
             toast.error("Password is Required");
         }
-        if (email !== "" && password !== ""){
+        if (Email !== "" && Password !== ""){
             fetch(
-                "http://localhost:5000/signup",
+                "http://localhost:5000/login",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email:email, password:password, returnSecureToken: true }),
+                    body: JSON.stringify({ email:Email, password:Password, returnSecureToken: true }),
                 }
                 ).then((response) => {
                     return response.json()
                 }).then((data)=>{
-                    console.log(data)
-                    // if(data.registered === true){
-                    //     Navigate("/")
-                    // }else{
-                    //     toast.error(data.error.message)
-                    // }
+                    if(data.passOk === true){
+                        Navigate("/")
+                    }else{
+                        toast.error(data.error.message)
+                    }
                     
                 }).catch(()=>{
                     toast.error("error")
@@ -41,6 +40,7 @@ function Login() {
 }
   return (
     <div className="logContainer">
+        <ToastContainer />
         <div className='login'>
         <form>
             <h1>Login</h1>
@@ -48,9 +48,9 @@ function Login() {
             <input name="email" type="text" placeholder="Email or Phone" className='input' value={email}
             onChange={(e) => setEmail(e.target.value)}/>
             <label>Password</label>
-            <input name="password" placeholder="Password" className='input' value={password}
+            <input type='password' name="password" placeholder="Password" className='input' value={password}
             onChange={(e) => setPassword(e.target.value)}/>
-            <button onClick={}>Log In</button>
+            <button onClick={validateData}>Log In</button>
         </form>
     </div>
     </div>

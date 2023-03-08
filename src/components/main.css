@@ -97,6 +97,12 @@ Link,button {
     align-items: center;
     gap: 1vh;
 }
+.searchContainer2{
+  display: flex;
+  gap: 1vh;
+  align-items: center;
+  justify-content: center;
+}
 .searchBar {
   right: 0;
   margin-top: 1vh;

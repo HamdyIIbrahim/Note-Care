@@ -21,8 +21,9 @@ mongoose.connect("mongodb://MyBlog:0MVis9VgS2cA6KFa@ac-gkk8uf6-shard-00-00.4havi
     console.log("can't connect");
 });
 
-app.get("/", (req, res) => {
-    console.log("welcome from homw page");
+app.get("/", async (req, res) => {
+    const allNotes = await Note.find();
+    res.json({allNotes});
 });
 app.post("/createnote", async (req, res) => {
     const { title, content } = req.body;
@@ -36,17 +37,20 @@ app.post("/createnote", async (req, res) => {
 app.post("/signup",async (req,res)=>{
     const {email ,password}=req.body;
     try {
-        const userDoc = await User.create({
+        await User.create({
             email,
             password:bcrypt.hashSync(password, saltRounds),
         })
+        
     } catch (error) {
         res.status(400).json(error)
     }
 })
 app.post('/login',async (req,res)=>{
     const {email,password}=req.body;
-    await  User.findOne()
+    const userDoc =await  User.findOne({email});
+    const passOk=bcrypt.compareSync(password, userDoc.password);
+    res.json({passOk})
 
 })
 
