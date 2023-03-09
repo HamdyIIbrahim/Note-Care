@@ -45,7 +45,7 @@ function Signup() {
           console.log(error);
         });
     }
-    Navigate("/");
+    
   };
   function submitHandler(e) {
     e.preventDefault();

@@ -24,7 +24,7 @@ function Noteshelf() {
   return (
     <div className="noteShelfContainer">
       
-      {data.map((note)=><Note title={note.title}/>)}
+      {data.map((note)=><Note title={note.title} key={note.title}/>)}
     </div>
   );
 }

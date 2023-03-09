@@ -1,12 +1,28 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Searchbar from "./searchbar";
-
+import {changeColor} from "./redux/reducer"
+import { toast, ToastContainer } from "react-toastify";
 function Createnote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const selector = useSelector((state)=>state);
+  
+  const dispatch = useDispatch();
+  function toggle(){
+    dispatch(changeColor("black"))
+  }
+
 
   async function confirm(e) {
     e.preventDefault();
+    if (title === "") {
+      toast.error("title is Required");
+  }
+  if(content === ''){
+      toast.error("content is Required");
+  }
+  if (title !== "" && content !== ""){
     await fetch("http://localhost:5000/createnote", {
       method: "POST",
       mode: "cors",
@@ -20,11 +36,15 @@ function Createnote() {
         console.log(error);
     });
   }
+    
+  }
+  console.log(selector);
 
 return (
   <div className="mainContainer">
+      <ToastContainer />
       <Searchbar />
-      <div className="newNoteContainer">
+      <div className="newNoteContainer" style={{backgroundColor:{selector}}}>
     <form onSubmit={confirm}>
       <label>Title : </label>
       <input
@@ -44,7 +64,7 @@ return (
         onChange={(e) => setContent(e.target.value)}
         className="titleNote"
       ></input>
-      <button className="buttonSave">
+      <button className="buttonSave" onClick={toggle}>
         Save
       </button>
     </form>
