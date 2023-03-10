@@ -1,20 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit"
-
-const initial ={
-    color:"coral",
+const init ={
+    color:"coral"
 }
 
-export const colorSlice = createSlice({
-    name:"color",
-    initial,
-    reducers: {
-        changeColor:(state,action)=>{
-            state.color=action.payload
-        },
-        
-        
+export default function Reducer(state=init,action){
+    switch(action.type){
+        case"SET_COLOR":
+        return{
+            ...state,
+            color:action.payload
+        }
+        default:
+            return state
     }
-})
-export const {changeColor} = colorSlice.actions;
-export default colorSlice;
-
+}

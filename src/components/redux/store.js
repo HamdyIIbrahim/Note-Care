@@ -1,8 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
-import colorSlice from './reducer'
-
-export const store = configureStore({
-  reducer: {
-    color:colorSlice
-  },
-})
+import { createStore } from "@reduxjs/toolkit";
+import Reducer from '../redux/reducer';
+const store = createStore(Reducer);
+export default store;

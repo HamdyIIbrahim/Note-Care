@@ -33,7 +33,7 @@ Link,button {
   flex-direction: column;
   justify-content: flex-start;
   width: 15vw;
-  gap: 10vh;
+  gap: 5vh;
   align-items: center;
   border-right: 1px solid #0000004f;
   padding: 1vh;
@@ -164,7 +164,7 @@ label {
   margin-left: 91%;
     margin-top: 2%;
 }
-.links{
+.links,.logNav{
     display: flex;
     gap: 25px;
 }
@@ -230,4 +230,48 @@ label{
   font-size: 25px;
   font-weight: bolder;
   color:var(--background-color)
+}
+.logNav svg{
+  cursor: pointer;
+}
+.dropColors{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+ 
+}
+.color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  
+  animation: animate 3s alternate 1;
+  animation-duration: 2s; 
+}
+@keyframes animate{
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-30px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+.color:nth-child(1){
+  animation-delay: 0.2s;
+  background-color: var(--background-color) !important;
+}
+.color:nth-child(2){
+  animation-delay: 0.4s;
+  background-color: blueviolet !important;
+}
+.color:nth-child(3){
+  animation-delay: 0.6s;
+  background-color: maroon !important;
+}
+.color:nth-child(4){
+  animation-delay: 0.8s;
+  background-color: mediumblue !important;
 }
