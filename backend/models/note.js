@@ -9,6 +9,12 @@ const noteSchema = new mongoose.Schema({
     content:{
         type:String,
         requied:true
+    },
+    background:{
+        type:String,
+    },
+    date:{
+        type:String,
     }
 });
 const noteModel =mongoose.model("Notes",noteSchema);

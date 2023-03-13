@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: "coral",
+  auth:false
 }
 
 export const colorSlice = createSlice({
@@ -11,10 +12,13 @@ export const colorSlice = createSlice({
     setColor: (state, action) => {
       state.value = action.payload
     },
+    setAuth: (state, action) => {
+      state.auth = action.payload
+    },
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { setColor } = colorSlice.actions
+export const { setColor ,setAuth } = colorSlice.actions
+
 
 export default colorSlice.reducer

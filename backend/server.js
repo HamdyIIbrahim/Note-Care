@@ -25,11 +25,24 @@ app.get("/", async (req, res) => {
     const allNotes = await Note.find();
     res.json({allNotes});
 });
+app.get("/editenode/:id", async (req, res) => {
+    const Id = req.params.id;
+    const note = await Note.findById(Id).exec();
+    res.json({note});
+});
+app.put("/editenode/:id", async (req, res) => {
+    const {title,content} =req.body;
+    const Id = req.params.id;
+    const note = await Note.findByIdAndUpdate(Id,{title:title,content:content});
+    res.json({note});
+});
 app.post("/createnote", async (req, res) => {
-    const { title, content } = req.body;
+    const { title, content ,selector,cuurentDate } = req.body;
     const noteDoc = await Note.create({
         title,
         content,
+        background:selector,
+        date:cuurentDate
     });
     res.json({ noteDoc });
 });
@@ -53,6 +66,7 @@ app.post('/login',async (req,res)=>{
     res.json({passOk})
 
 })
+
 
 app.listen(port);
 //0MVis9VgS2cA6KFa

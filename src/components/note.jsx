@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Note({title}) {
-const date = new Date();
-
+function Note({title, id,color,date}) {
+  
   return (
-    <div className="noteContainer">
+    <div className="noteContainer" style={{backgroundColor:color}}>
       <h2>{title}</h2>
         
-      <div className="noteFooter">
-        <h5>{date.toDateString().replaceAll(" ",",")}</h5>
-        <Link to="/editenode">
+      <div className="noteFooter" >
+        <h5>{date}</h5>
+        <Link to={`/editenode/${id}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import Searchbar from "./searchbar";
 import { toast, ToastContainer } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
-import { setColor } from "./reduxToolkit/reducer";
+import { useSelector } from "react-redux";
+
 function Createnote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
  const selector = useSelector((state)=>state.color.value);
- const dispatch = useDispatch(); 
 
+ const date = new Date();
+const cuurentDate =date.toDateString().replaceAll(" ",",");
   async function confirm(e) {
     e.preventDefault();
     if (title === "") {
@@ -24,8 +25,8 @@ function Createnote() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title, content }),
-    }).then(()=>{
+      body: JSON.stringify({ title, content , selector, cuurentDate}),
+    }).then(()=>{ 
       console.log('done');
     }).catch((error)=>{
         console.log(error);

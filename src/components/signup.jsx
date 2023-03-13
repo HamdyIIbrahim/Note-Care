@@ -8,6 +8,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirmation] = useState("");
   const validateData = () => {
+    
     const Email = email.trim();
     const Password = password.trim();
     const PasswordConfirm = passwordConfirm.trim();
