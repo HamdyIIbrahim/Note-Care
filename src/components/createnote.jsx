@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Searchbar from "./searchbar";
 import { toast, ToastContainer } from "react-toastify";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Createnote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
  const selector = useSelector((state)=>state.color.value);
+ const Navigate=useNavigate();
 
  const date = new Date();
 const cuurentDate =date.toDateString().replaceAll(" ",",");
@@ -60,7 +62,7 @@ return (
         onChange={(e) => setContent(e.target.value)}
         className="titleNote"
       ></input>
-      <button className="buttonSave" >
+      <button className="buttonSave" onClick={Navigate("/")}>
         Save
       </button>
     </form>
