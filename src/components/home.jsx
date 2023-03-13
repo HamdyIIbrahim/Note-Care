@@ -7,9 +7,10 @@ import Searchbar from "./searchbar";
 
 function Home() {
   const selector = useSelector((state)=>state.color.auth);
+  const Theme = useSelector((state)=>state.color.theme);
   return (
     <div className="homeContainer">
-      <div className="mainContainer">
+      <div className={`mainContainer ${(Theme=== "light")?"":"dark"}`}>
         { selector? <LogNav /> : <Searchbar /> }
         <h1>Notes</h1>
           <Noteshelf />

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setColor } from "./reduxToolkit/reducer";
 
 function Slidebar() {
+  const selector = useSelector((state)=>state.color.theme);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const [show, setShow] = useState(true);
@@ -28,7 +29,7 @@ function Slidebar() {
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="black"
+          fill={(selector === "light")?"black":"white"}
           className="bi bi-plus-circle-fill"
           viewBox="0 0 16 16"
         >

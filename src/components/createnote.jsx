@@ -29,6 +29,7 @@ const cuurentDate =date.toDateString().replaceAll(" ",",");
       },
       body: JSON.stringify({ title, content , selector, cuurentDate}),
     }).then(()=>{ 
+      Navigate("/")
       console.log('done');
     }).catch((error)=>{
         console.log(error);
@@ -62,7 +63,7 @@ return (
         onChange={(e) => setContent(e.target.value)}
         className="titleNote"
       ></input>
-      <button className="buttonSave" onClick={Navigate("/")}>
+      <button className="buttonSave" >
         Save
       </button>
     </form>
