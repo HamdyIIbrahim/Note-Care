@@ -9,10 +9,10 @@ function Home() {
   const selector = useSelector((state)=>state.color.auth);
   const Theme = useSelector((state)=>state.color.theme);
   return (
-    <div className="homeContainer">
-      <div className={`mainContainer ${(Theme=== "light")?"":"dark"}`}>
+    <div className={`appContainer ${(Theme=== false)?"":"dark"}`}>
+      <div className={`mainContainer ${(Theme=== false)?"":"dark"}`}>
         { selector? <LogNav /> : <Searchbar /> }
-        <h1>Notes</h1>
+        <h1 className={`headnote ${(Theme=== false)?"":"dark"}`}>Notes</h1>
           <Noteshelf />
       </div>
     </div>

@@ -18,7 +18,7 @@ function Slidebar() {
     setShow(!show);
   }
   return (
-    <div className="slideContainer">
+    <div className={`slideContainer ${(selector=== false)?"":"dark"}`}>
       <h2>
         <Link to="/" className="linklogo">
           Note Care
@@ -29,7 +29,7 @@ function Slidebar() {
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill={(selector === "light")?"black":"white"}
+          fill={(selector === false)?"black":"white"}
           className="bi bi-plus-circle-fill"
           viewBox="0 0 16 16"
         >

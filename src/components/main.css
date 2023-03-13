@@ -9,13 +9,16 @@
   --secondary-color: aliceblue;
   --placeholder-color: rgba(240, 248, 255, 0.438);
   --background-color:coral;
+  --back-color:white;
 }
 .dark{
   --main-color: aliceblue;
   --secondary-color: black;
   --placeholder-color: rgba(240, 248, 255, 0.438);
   --background-color:coral;
+  --back-color:black;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -26,6 +29,7 @@ Link,button {
   width: 100vw;
   height: 100vh;
   display: flex;
+  background-color:var(--back-color) !important;
 }
 .homeContainer {
   display: flex;
@@ -41,8 +45,12 @@ Link,button {
   width: 15vw;
   gap: 5vh;
   align-items: center;
-  border-right: 1px solid #0000004f;
+  border-right: 1px solid var(--main-color);
   padding: 1vh;
+  background-color:var(--back-color) !important;
+}
+.headnote{
+  color:var(--main-color);
 }
 .slideContainer button,
 .noteContainer button {
@@ -67,6 +75,7 @@ Link,button {
   gap: 7vh;
   height: 100vh;
   overflow: overlay;
+  
 }
 .mainContainer h1 {
   font-size: 60px;
