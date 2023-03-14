@@ -52,7 +52,7 @@ app.post("/signup",async (req,res)=>{
     try {
         await User.create({
             email,
-            password:bcrypt.hashSync(password, saltRounds),
+            password:bcrypt.hashSync(password, saltRounds,req.Users._id),
         })
         
     } catch (error) {

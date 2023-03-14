@@ -68,14 +68,23 @@ Link,button {
   cursor: pointer;
 }
 .mainContainer {
+  width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 7vh;
+    height: 100vh;
+    overflow: overlay;
+    padding: 0 6vw;
+  
+}
+.homeMainContainer{
   margin: 0 auto;
   width: 80vw;
-  display: flex;
-  flex-direction: column;
-  gap: 7vh;
-  height: 100vh;
-  overflow: overlay;
-  
+    display: flex;
+    flex-direction: column;
+    gap: 7vh;
+    height: 100vh;
+    overflow: overlay;
 }
 .mainContainer h1 {
   font-size: 60px;
@@ -111,6 +120,7 @@ Link,button {
     justify-content: space-between;
     align-items: center;
     gap: 1vh;
+    margin-top: 1vw;
 }
 .searchContainer2{
   display: flex;
@@ -139,10 +149,10 @@ Link,button {
 }
 .newNoteContainer {
   width: 50vw;
-  height: 40vh;
-  background-color: var(--background-color);
-  border-radius: 20px;
-  padding: 20px;
+    height: max-content;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    padding: 20px;
 }
 label {
   font-size: xx-large;
@@ -181,6 +191,8 @@ label {
 }
 .links,.logNav{
     display: flex;
+    align-items:center;
+    justify-content: center;
     gap: 25px;
 }
 .link ,.link:visited ,.link:active,.link:hover{

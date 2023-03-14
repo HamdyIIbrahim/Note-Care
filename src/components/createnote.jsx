@@ -3,11 +3,13 @@ import Searchbar from "./searchbar";
 import { toast, ToastContainer } from "react-toastify";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import LogNav from "./logNav";
 
 function Createnote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
  const selector = useSelector((state)=>state.color.value);
+ const Auth = useSelector((state)=>state.color.auth);
  const Navigate=useNavigate();
 
  const date = new Date();
@@ -42,7 +44,7 @@ const cuurentDate =date.toDateString().replaceAll(" ",",");
 return (
   <div className="mainContainer">
       <ToastContainer />
-      <Searchbar />
+      {(Auth)?<LogNav />:<Searchbar />}
       <div className="newNoteContainer" style={{backgroundColor:selector}}>
     <form onSubmit={confirm}>
       <label>Title : </label>

@@ -9,6 +9,10 @@ const noteSchema = new mongoose.Schema({
     password:{
         type:String,
         requied:true
+    },
+    noteId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Notes"
     }
 });
 const noteModel =mongoose.model("Users",noteSchema);
