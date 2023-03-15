@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import LogNav from './logNav';
 import Searchbar from './searchbar';
 
 function EditNote() {
@@ -9,6 +10,7 @@ function EditNote() {
 const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const selector = useSelector((state)=>state.color.value);
+  const Auth = useSelector((state)=>state.color.auth);
   const [color, setColor] = useState(selector);
 
  async function confirm(e) {
@@ -55,7 +57,7 @@ useEffect(()=>{
   return (
     <div className="mainContainer">
       <ToastContainer />
-      <Searchbar />
+      {(Auth)?<LogNav />:<Searchbar />}
       <div className="newNoteContainer" style={{backgroundColor:color}}>
     <form onSubmit={confirm}>
       <label>Title : </label>
