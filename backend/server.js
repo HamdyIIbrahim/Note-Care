@@ -6,17 +6,17 @@ const Note = require("./models/note");
 const port = process.env.PORT || 5000;
 const User = require('./models/user');
 const bcrypt = require('bcrypt');
+require("dotenv").config();
 
 const saltRounds = 10;
 let user ;
+
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb+srv://MyBlog:0MVis9VgS2cA6KFa@cluster0.4havili.mongodb.net/NoteApp",{
-    serverSelectionTimeoutMS: 5000 
-}).then(() => {
+mongoose.connect(`${process.env.DB_CONNECTION}`).then(() => {
     console.log("connected");
 }).catch(() => {
     console.log("can't connect");
@@ -42,7 +42,6 @@ app.put("/editenode/:id", async (req, res) => {
     const note = await Note.findByIdAndUpdate(Id,{title:title,content:content});
     res.json({note});
 });
-
 app.post("/signup",async (req,res)=>{
     const {email ,password}=req.body;
     try {
@@ -77,5 +76,3 @@ app.post("/createnote", async (req, res) => {
 });
 
 app.listen(port);
-//0MVis9VgS2cA6KFa
-//mongodb+srv://MyBlog:0MVis9VgS2cA6KFa@cluster0.4havili.mongodb.net/NoteApp

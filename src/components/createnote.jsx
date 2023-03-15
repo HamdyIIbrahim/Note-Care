@@ -33,7 +33,7 @@ const cuurentDate =date.toDateString().replaceAll(" ",",");
       },
       body: JSON.stringify({ title, content , selector, cuurentDate}),
     }).then(()=>{ 
-      Navigate("/")
+      Navigate("/home")
       console.log('done');
     }).catch((error)=>{
         console.log(error);
