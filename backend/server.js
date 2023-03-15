@@ -8,12 +8,13 @@ const User = require('./models/user');
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
+let user ;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://MyBlog:0MVis9VgS2cA6KFa@ac-gkk8uf6-shard-00-00.4havili.mongodb.net:27017,ac-gkk8uf6-shard-00-01.4havili.mongodb.net:27017,ac-gkk8uf6-shard-00-02.4havili.mongodb.net:27017/?ssl=true&replicaSet=atlas-f0s2s6-shard-0&authSource=admin&retryWrites=true&w=majority",{
+mongoose.connect("mongodb+srv://MyBlog:0MVis9VgS2cA6KFa@cluster0.4havili.mongodb.net/NoteApp",{
     serverSelectionTimeoutMS: 5000 
 }).then(() => {
     console.log("connected");
@@ -21,8 +22,13 @@ mongoose.connect("mongodb://MyBlog:0MVis9VgS2cA6KFa@ac-gkk8uf6-shard-00-00.4havi
     console.log("can't connect");
 });
 
-app.get("/", async (req, res) => {
-    const allNotes = await Note.find();
+app.get("/home", async (req, res) => {
+    const allNotes = await Note.find({ userId : user}).exec();
+    res.json({allNotes});
+});
+app.get("/home/:value", async (req, res) => {
+    const searchData=req.params.value;
+    const allNotes = await Note.find({ userId : user, title :{$regex:searchData ,$options:"i"}  }).exec();
     res.json({allNotes});
 });
 app.get("/editenode/:id", async (req, res) => {
@@ -36,23 +42,13 @@ app.put("/editenode/:id", async (req, res) => {
     const note = await Note.findByIdAndUpdate(Id,{title:title,content:content});
     res.json({note});
 });
-app.post("/createnote", async (req, res) => {
-    const { title, content ,selector,cuurentDate } = req.body;
-    const noteDoc = await Note.create({
-        title,
-        content,
-        background:selector,
-        date:cuurentDate
-    });
-    res.json({ noteDoc });
-});
 
 app.post("/signup",async (req,res)=>{
     const {email ,password}=req.body;
     try {
         await User.create({
             email,
-            password:bcrypt.hashSync(password, saltRounds,req.Users._id),
+            password:bcrypt.hashSync(password, saltRounds)
         })
         
     } catch (error) {
@@ -63,10 +59,23 @@ app.post('/login',async (req,res)=>{
     const {email,password}=req.body;
     const userDoc =await  User.findOne({email});
     const passOk=bcrypt.compareSync(password, userDoc.password);
+    user=userDoc._id;
     res.json({passOk})
 
 })
 
+app.post("/createnote", async (req, res) => {
+    const { title, content ,selector,cuurentDate } = req.body;
+    const noteDoc = await Note.create({
+        title,
+        content,
+        background:selector,
+        date:cuurentDate,
+        userId:user, 
+    });
+    res.json({ noteDoc });
+});
 
 app.listen(port);
 //0MVis9VgS2cA6KFa
+//mongodb+srv://MyBlog:0MVis9VgS2cA6KFa@cluster0.4havili.mongodb.net/NoteApp

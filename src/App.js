@@ -6,17 +6,53 @@ import Login from "./components/login";
 import Signup from "./components/signup";
 import Slidebar from "./components/slidebar";
 import EditNote from "./components/editNote";
+import ProtectedRoute from "./components/protectedRoute";
 
 function App() {
   return (
     <div className="appContainer">
       <Slidebar />
       <Routes>
-        <Route exist path="/" element={<Home />}></Route>
-        <Route path="/createnote" element={<Createnote />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route exist path="/" element={<Login />}></Route>
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/home/:value"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/createnote"
+          element={
+            <ProtectedRoute>
+              <Createnote />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/login"
+          element={
+              <Login />
+          }
+        ></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/editenode/:id" element={<EditNote />}></Route>
+        <Route
+          path="/editenode/:id"
+          element={
+            <ProtectedRoute>
+              <EditNote />
+            </ProtectedRoute>
+          }
+        ></Route>
       </Routes>
     </div>
   );

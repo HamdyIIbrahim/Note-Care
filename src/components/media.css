@@ -1,0 +1,30 @@
+@media(max-width:790px){
+    .appContainer{
+        flex-direction: column;
+    }
+    .slideContainer{
+        display: flex; 
+        width: 100vw;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 5vh;
+        align-items: center;
+        border-right: 1px solid var(--main-color);
+        padding: 1vh;
+        background-color: var(--back-color) !important;
+        height: max-content;
+        margin: 2vh 0;
+    }
+    .dropColors{
+        display: flex;
+        flex-direction: row;
+        gap: 1.5vh;
+    }
+    .noteShelfContainer{
+        flex-direction: column;
+        gap: 3vh;
+    }
+    .noteContainer {
+        width:80vw;
+    }
+}

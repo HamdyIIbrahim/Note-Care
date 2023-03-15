@@ -10,6 +10,8 @@ function Createnote() {
   const [content, setContent] = useState("");
  const selector = useSelector((state)=>state.color.value);
  const Auth = useSelector((state)=>state.color.auth);
+ const Theme = useSelector((state)=>state.color.theme);
+
  const Navigate=useNavigate();
 
  const date = new Date();
@@ -42,7 +44,7 @@ const cuurentDate =date.toDateString().replaceAll(" ",",");
   
 
 return (
-  <div className="mainContainer">
+  <div className={`mainContainer ${(Theme=== false)?"":"dark"}`}>
       <ToastContainer />
       {(Auth)?<LogNav />:<Searchbar />}
       <div className="newNoteContainer" style={{backgroundColor:selector}}>
@@ -65,7 +67,7 @@ return (
         onChange={(e) => setContent(e.target.value)}
         className="titleNote"
       ></input>
-      <button className="buttonSave" >
+      <button className="buttonSave">
         Save
       </button>
     </form>

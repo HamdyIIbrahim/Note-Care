@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Note from "./note";
 
 function Noteshelf() {
   const [data ,setData]=useState([]);
+  const auth = useSelector((state) => state.color.auth);
+  const searchValue = useSelector((state) => state.color.search);
   
+
   useEffect(()=>{
-    fetch("http://localhost:5000/", {
+    if(auth){
+      if(searchValue === ""){
+        fetch("http://localhost:5000/home", {
         method: "get",
         mode: "cors",
         headers: {
@@ -20,7 +26,25 @@ function Noteshelf() {
         .catch((error) => {
           console.log(error);
         });
-  },[])
+      }else{
+        fetch(`http://localhost:5000/home/${searchValue}`, {
+        method: "get",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }).then((response) => {
+        return response.json()
+      }).then((result) => {
+          setData(result['allNotes']);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      }
+    }
+  },[searchValue])
   return (
     <div className="noteShelfContainer">
       

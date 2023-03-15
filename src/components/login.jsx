@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { setAuth } from "./reduxToolkit/reducer";
 function Login() {
@@ -36,7 +36,7 @@ function Login() {
           console.log(data.passOk);
           if (data.passOk === true) {
             dispatch(setAuth(true));
-            Navigate("/");
+            Navigate("/home");
           } else {
             toast.error(data.error.message);
           }
@@ -69,6 +69,7 @@ function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <p className="textToggle">Already have account  <Link to='/signup'>signup</Link></p>
           <button onClick={validateData}>Log In</button>
         </form>
       </div>

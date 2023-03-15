@@ -5,6 +5,7 @@ import { setColor } from "./reduxToolkit/reducer";
 
 function Slidebar() {
   const selector = useSelector((state)=>state.color.theme);
+  const auth = useSelector((state) => state.color.auth);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const [show, setShow] = useState(true);
@@ -20,7 +21,7 @@ function Slidebar() {
   return (
     <div className={`slideContainer ${(selector=== false)?"":"dark"}`}>
       <h2>
-        <Link to="/" className="linklogo">
+        <Link to="/home" className="linklogo">
           Note Care
         </Link>
       </h2>
@@ -37,16 +38,16 @@ function Slidebar() {
         </svg>
       </Link>
       <div className="dropColors" style={{ display: show ? "none" : "" }}>
-        <button className="color" value="coral" onClick={changeColor}>
+        <button className="color" value="coral" onClick={changeColor} disabled={!auth}>
           {" "}
         </button>
-        <button className="color" value="blueviolet" onClick={changeColor}>
+        <button className="color" value="blueviolet" onClick={changeColor} disabled={!auth}>
           {" "}
         </button>
-        <button className="color" value="maroon" onClick={changeColor}>
+        <button className="color" value="maroon" onClick={changeColor} disabled={!auth}>
           {" "}
         </button>
-        <button className="color" value="mediumblue" onClick={changeColor}>
+        <button className="color" value="mediumblue" onClick={changeColor} disabled={!auth}>
           {" "}
         </button>
       </div>

@@ -1,15 +1,28 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { setTheme } from "./reduxToolkit/reducer";
+import { Link, useNavigate } from "react-router-dom";
+import { setTheme,setAuth,setSearch } from "./reduxToolkit/reducer";
 function LogNav() {
+
   const dispatch = useDispatch();
   const color = useSelector((state) => state.color.value);
   const selector = useSelector((state) => state.color.theme);
+  const auth = useSelector((state) => state.color.auth);
+  const value = useSelector((state) => state.color.search);
+  const Navigate=useNavigate();
+  
+
   function changeTheme(e) {
     e.preventDefault();
     dispatch(setTheme(!selector));
   }
+  function logOut(e) {
+    e.preventDefault();
+    dispatch(setAuth(!auth));
+    dispatch(setSearch(''));
+    Navigate('/login');
+  }
+
   return (
     <div className="searchContainer">
       <div className="searchContainer2">
@@ -27,6 +40,10 @@ function LogNav() {
           type="text"
           placeholder="Search "
           className="searchBar"
+          onChange={(e)=>{
+            dispatch(setSearch(e.target.value));
+            Navigate(`/home/${value}`);
+          }}
           style={{ color: color }}
         ></input>
       </div>
@@ -70,7 +87,7 @@ function LogNav() {
             </svg>
           )}
         </Link>
-        <Link to="/" className={`link ${selector === false ? "" : "dark"}`}>
+        <Link to="/login" className={`link ${selector === false ? "" : "dark"}`} onClick={logOut}>
           Log out
         </Link>
       </div>

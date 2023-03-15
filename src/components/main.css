@@ -42,12 +42,13 @@ Link,button {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 15vw;
+  width: max-content;
   gap: 5vh;
   align-items: center;
   border-right: 1px solid var(--main-color);
   padding: 1vh;
   background-color:var(--back-color) !important;
+  text-align: center;
 }
 .headnote{
   color:var(--main-color);
@@ -75,6 +76,7 @@ Link,button {
     height: 100vh;
     overflow: overlay;
     padding: 0 6vw;
+    background-color:var(--back-color);
   
 }
 .homeMainContainer{
@@ -301,4 +303,11 @@ label{
 .color:nth-child(4){
   animation-delay: 0.8s;
   background-color: mediumblue !important;
+}
+.textToggle{
+  text-align: end;
+  margin-top: 1vh;
+  margin-right: 4vw;
+  line-height: 1.5;
+  font-weight: 600;
 }

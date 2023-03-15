@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 function Signup() {
@@ -85,6 +85,7 @@ function Signup() {
             value={passwordConfirm}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
+          <p className="textToggle">Create account  <Link to='/login'>Login</Link></p>
           <button onClick={submitHandler}>Signup</button>
         </form>
       </div>
