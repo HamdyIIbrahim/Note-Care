@@ -31,7 +31,7 @@ function Signup() {
       /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(Email) &&
       Password === PasswordConfirm
     ) {
-      fetch("http://localhost:5000/signup", {
+      fetch("https://note-care-hamdyiibrahim.vercel.app/signup", {
         method: "POST",
         mode: "cors",
         headers: {

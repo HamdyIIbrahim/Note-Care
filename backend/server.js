@@ -12,7 +12,9 @@ const saltRounds = 10;
 let user ;
 
 
-app.use(cors());
+app.use(cors({
+    Origin : "https://note-care-hamdyiibrahim.vercel.app"
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

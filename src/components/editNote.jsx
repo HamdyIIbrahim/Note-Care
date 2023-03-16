@@ -22,7 +22,7 @@ const [title, setTitle] = useState("");
       toast.error("content is Required");
   }
   if (title !== "" && content !== ""){
-    await fetch(`http://localhost:5000/editenode/${id}`, {
+    await fetch(`https://note-care-hamdyiibrahim.vercel.app/editenode/${id}`, {
       method: "put",
       mode: "cors",
       headers: {
@@ -36,7 +36,7 @@ const [title, setTitle] = useState("");
   }
 }
 useEffect(()=>{
-    fetch(`http://localhost:5000/editenode/${id}`, {
+    fetch(`https://note-care-hamdyiibrahim.vercel.app/editenode/${id}`, {
         method: "get",
         mode: "cors",
         headers: {
