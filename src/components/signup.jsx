@@ -31,7 +31,7 @@ function Signup() {
       /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(Email) &&
       Password === PasswordConfirm
     ) {
-      fetch("https://note-care.vercel.app/signup", {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/signup`, {
         method: "POST",
         mode: "cors",
         headers: {

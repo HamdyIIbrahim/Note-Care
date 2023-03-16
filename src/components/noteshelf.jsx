@@ -11,7 +11,7 @@ function Noteshelf() {
   useEffect(()=>{
     if(auth){
       if(searchValue === ""){
-        fetch("https://note-care.vercel.app/home", {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/home`, {
         method: "get",
         mode: "cors",
         headers: {
@@ -27,7 +27,7 @@ function Noteshelf() {
           console.log(error);
         });
       }else{
-        fetch(`https://note-care.vercel.app/home/${searchValue}`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/home/${searchValue}`, {
         method: "get",
         mode: "cors",
         headers: {

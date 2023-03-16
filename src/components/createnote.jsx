@@ -25,7 +25,7 @@ const cuurentDate =date.toDateString().replaceAll(" ",",");
       toast.error("content is Required");
   }
   if (title !== "" && content !== ""){
-    await fetch("https://note-care.vercel.app/createnote", {
+    await fetch(`${process.env.REACT_APP_BACKEND_URL}/createnote`, {
       method: "POST",
       mode: "cors",
       headers: {
