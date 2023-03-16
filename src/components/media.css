@@ -13,7 +13,7 @@
         padding: 1vh;
         background-color: var(--back-color) !important;
         height: max-content;
-        margin: 2vh 0;
+        padding: 2vh 0;
     }
     .dropColors{
         display: flex;
@@ -26,5 +26,19 @@
     }
     .noteContainer {
         width:80vw;
+    }
+    .searchContainer{
+        padding: 4vw 0;
+        margin-top: 3vh;
+    }
+    .buttons{
+        margin-left: 50vw;
+        width: 1vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: end;
+    }
+    .newNoteContainer{
+        width: 88vw;
     }
 }

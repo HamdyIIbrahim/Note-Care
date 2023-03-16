@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import LogNav from './logNav';
 import Searchbar from './searchbar';
@@ -10,6 +10,7 @@ function EditNote() {
 const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const selector = useSelector((state)=>state.color.value);
+  const Theme = useSelector((state)=>state.color.theme);
   const Auth = useSelector((state)=>state.color.auth);
   const [color, setColor] = useState(selector);
 
@@ -35,6 +36,22 @@ const [title, setTitle] = useState("");
     });
   }
 }
+async function deleteNote(e){
+  e.preventDefault();
+  await fetch(`${process.env.REACT_APP_BACKEND_URL}/delete/${id}`, {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(),
+  }).then(()=>{ 
+    <Navigate to={'/home'} />
+  }).catch((error)=>{
+      console.log(error);
+  });
+}
+
 useEffect(()=>{
     fetch(`${process.env.REACT_APP_BACKEND_URL}/editenode/${id}`, {
         method: "get",
@@ -55,7 +72,7 @@ useEffect(()=>{
         });
   },[])
   return (
-    <div className="mainContainer">
+    <div className={`mainContainer ${(Theme=== false)?"":"dark"}`} >
       <ToastContainer />
       {(Auth)?<LogNav />:<Searchbar />}
       <div className="newNoteContainer" style={{backgroundColor:color}}>
@@ -76,9 +93,14 @@ useEffect(()=>{
         onChange={(e) => setContent(e.target.value)}
         className="titleNote"
       ></input>
-      <button className="buttonSave" onClick={confirm}>
-        Save
-      </button>
+      <div className='buttons'>
+        <button className="buttonSave" onClick={deleteNote}>
+          Delete
+        </button>
+        <button className="buttonSave" onClick={confirm}>
+          Save
+        </button>
+      </div>
     </form>
   </div>
   </div>
