@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Navigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import LogNav from './logNav';
 import Searchbar from './searchbar';
@@ -13,6 +13,7 @@ const [title, setTitle] = useState("");
   const Theme = useSelector((state)=>state.color.theme);
   const Auth = useSelector((state)=>state.color.auth);
   const [color, setColor] = useState(selector);
+  const Navigate=useNavigate();
 
  async function confirm(e) {
     e.preventDefault();
@@ -31,6 +32,7 @@ const [title, setTitle] = useState("");
       },
       body: JSON.stringify({ title, content}),
     }).then(()=>{ 
+      Navigate('/home');
     }).catch((error)=>{
         console.log(error);
     });
@@ -39,14 +41,14 @@ const [title, setTitle] = useState("");
 async function deleteNote(e){
   e.preventDefault();
   await fetch(`${process.env.REACT_APP_BACKEND_URL}/delete/${id}`, {
-    method: "DELETE",
+    method: "get",
     mode: "cors",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(),
   }).then(()=>{ 
-    <Navigate to={'/home'} />
+    Navigate('/home');
   }).catch((error)=>{
       console.log(error);
   });

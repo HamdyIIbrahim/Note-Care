@@ -8,34 +8,35 @@
   --main-color: black;
   --secondary-color: aliceblue;
   --placeholder-color: rgba(240, 248, 255, 0.438);
-  --background-color:coral;
-  --back-color:white;
+  --background-color: coral;
+  --back-color: white;
 }
-.dark{
+.dark {
   --main-color: aliceblue;
   --secondary-color: black;
   --placeholder-color: rgba(240, 248, 255, 0.438);
-  --background-color:coral;
-  --back-color:black;
+  --background-color: coral;
+  --back-color: black;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
-Link,button {
+Link,
+button {
   cursor: pointer;
 }
 .appContainer {
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color:var(--back-color) !important;
+  background-color: var(--back-color) !important;
 }
 .homeContainer {
   display: flex;
-    flex-wrap: wrap;
-    width: 80vw;
-    margin: 0 auto;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0 auto;
 }
 .slideContainer {
   height: 100vh;
@@ -47,11 +48,11 @@ Link,button {
   align-items: center;
   border-right: 1px solid var(--main-color);
   padding: 1vh;
-  background-color:var(--back-color) !important;
+  background-color: var(--back-color) !important;
   text-align: center;
 }
-.headnote{
-  color:var(--main-color);
+.headnote {
+  color: var(--main-color);
 }
 .slideContainer button,
 .noteContainer button {
@@ -70,23 +71,22 @@ Link,button {
 }
 .mainContainer {
   width: 100vw;
-    display: flex;
-    flex-direction: column;
-    gap: 7vh;
-    height: 100vh;
-    overflow: overlay;
-    padding: 0 6vw;
-    background-color:var(--back-color);
-  
+  display: flex;
+  flex-direction: column;
+  gap: 7vh;
+  height: 100vh;
+  overflow: overlay;
+  padding: 0 6vw;
+  background-color: var(--back-color);
 }
-.homeMainContainer{
+.homeMainContainer {
   margin: 0 auto;
   width: 80vw;
-    display: flex;
-    flex-direction: column;
-    gap: 7vh;
-    height: 100vh;
-    overflow: overlay;
+  display: flex;
+  flex-direction: column;
+  gap: 7vh;
+  height: 100vh;
+  overflow: overlay;
 }
 .mainContainer h1 {
   font-size: 60px;
@@ -116,15 +116,15 @@ Link,button {
 }
 .searchContainer {
   width: 100%;
-    overflow: hidden;
-    height: 5vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1vh;
-    margin-top: 1vw;
+  overflow: hidden;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vh;
+  margin-top: 1vw;
 }
-.searchContainer2{
+.searchContainer2 {
   display: flex;
   gap: 1vh;
   align-items: center;
@@ -151,10 +151,10 @@ Link,button {
 }
 .newNoteContainer {
   width: 50vw;
-    height: max-content;
-    background-color: var(--background-color);
-    border-radius: 20px;
-    padding: 20px;
+  height: max-content;
+  background-color: var(--background-color);
+  border-radius: 20px;
+  padding: 20px;
 }
 label {
   font-size: xx-large;
@@ -182,135 +182,143 @@ label {
 .titleNote::placeholder {
   color: var(--placeholder-color);
 }
-.buttonSave{
+.buttonSave {
   padding: 10px;
   background-color: var(--secondary-color);
   color: var(--main-color);
   border: none;
   border-radius: 5px;
   margin-left: 91%;
-    margin-top: 2%;
+  margin-top: 2%;
 }
-.links,.logNav{
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    gap: 25px;
+.links,
+.logNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
 }
-.link ,.link:visited ,.link:active,.link:hover{
+.link,
+.link:visited,
+.link:active,
+.link:hover {
   text-decoration: none;
   color: var(--main-color);
   font-size: 20px;
   font-weight: 700;
 }
-.logContainer{
+.logContainer {
   width: 80vw;
   margin: 0 auto;
-
 }
-.form{
-    
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+.form {
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
 }
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
+label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
 }
-.input{
-    display: block;
-    height: 50px;
-    width: 100%;
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
+.input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
 }
-.login h1{
+.login h1 {
   color: var(--background-color);
 }
-.login label{
+.login label {
   color: var(--main-color);
 }
-.login button{
-    margin-top: 50px;
-    width: 100%;
-    background-color: var(--background-color);
-    color: var(--main-color);
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
+.login button {
+  margin-top: 50px;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--main-color);
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.linklogo,.linklogo:visited ,.linklogo:active,.linklogo:hover{
+.linklogo,
+.linklogo:visited,
+.linklogo:active,
+.linklogo:hover {
   text-decoration: none;
   font-size: 25px;
   font-weight: bolder;
-  color:var(--background-color)
+  color: var(--background-color);
 }
-.logNav svg{
+.logNav svg {
   cursor: pointer;
 }
-.dropColors{
+.dropColors {
   display: flex;
   flex-direction: column;
   gap: 1.5vh;
- 
 }
 .color {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  
+
   animation: animate 3s alternate 1;
-  animation-duration: 2s; 
+  animation-duration: 2s;
 }
-@keyframes animate{
-  0%{
+@keyframes animate {
+  0% {
     transform: translateY(0px);
   }
-  50%{
+  50% {
     transform: translateY(-30px);
   }
-  100%{
+  100% {
     transform: translateY(0px);
   }
 }
-.color:nth-child(1){
+.color:nth-child(1) {
   animation-delay: 0.2s;
   background-color: var(--background-color) !important;
 }
-.color:nth-child(2){
+.color:nth-child(2) {
   animation-delay: 0.4s;
   background-color: blueviolet !important;
 }
-.color:nth-child(3){
+.color:nth-child(3) {
   animation-delay: 0.6s;
   background-color: maroon !important;
 }
-.color:nth-child(4){
+.color:nth-child(4) {
   animation-delay: 0.8s;
   background-color: mediumblue !important;
 }
-.textToggle{
+.textToggle {
   text-align: end;
   margin-top: 1vh;
   margin-right: 4vw;
   line-height: 1.5;
   font-weight: 600;
 }
-.buttons{
-  margin-left: 40vw;
+.buttons {
+  margin-left: 30vw;
+  width: 1vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
 }
