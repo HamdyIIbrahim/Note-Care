@@ -11,7 +11,7 @@ function Noteshelf() {
   useEffect(()=>{
     if(auth){
       if(searchValue === ""){
-        fetch("https://note-care-hamdyiibrahim.vercel.app/home", {
+        fetch("https://note-care.vercel.app/home", {
         method: "get",
         mode: "cors",
         headers: {
@@ -27,7 +27,7 @@ function Noteshelf() {
           console.log(error);
         });
       }else{
-        fetch(`https://note-care-hamdyiibrahim.vercel.app/home/${searchValue}`, {
+        fetch(`https://note-care.vercel.app/home/${searchValue}`, {
         method: "get",
         mode: "cors",
         headers: {

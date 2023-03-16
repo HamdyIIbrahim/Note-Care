@@ -13,7 +13,7 @@ let user ;
 
 
 app.use(cors({
-    Origin : "https://note-care-hamdyiibrahim.vercel.app"
+    Origin : "https://note-care.vercel.app"
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

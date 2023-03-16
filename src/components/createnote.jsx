@@ -25,7 +25,7 @@ const cuurentDate =date.toDateString().replaceAll(" ",",");
       toast.error("content is Required");
   }
   if (title !== "" && content !== ""){
-    await fetch("https://note-care-hamdyiibrahim.vercel.app/createnote", {
+    await fetch("https://note-care.vercel.app/createnote", {
       method: "POST",
       mode: "cors",
       headers: {
