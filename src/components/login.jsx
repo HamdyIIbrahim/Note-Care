@@ -20,7 +20,7 @@ function Login() {
       toast.error("Password is Required");
     }
     if (Email !== "" && Password !== "") {
-      fetch("https://note-care.vercel.app//login", {
+      fetch("https://note-care.vercel.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
