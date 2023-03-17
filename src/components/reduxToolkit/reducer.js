@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: "coral",
-  auth:false,
+  auth:localStorage.getItem('Auth'),
   theme:false,
-  search:""
+  search:"",
+  user:null
 }
 
 export const colorSlice = createSlice({
@@ -15,8 +16,13 @@ export const colorSlice = createSlice({
       state.value = action.payload
     },
     setAuth: (state, action) => {
-     state.auth = action.payload
+     localStorage.setItem('Auth',true);
+     state.user=action.payload.user
     }, 
+    logOuttt:(state,action)=>{
+      localStorage.removeItem('Auth');
+      state.user=action.payload
+    },
     setTheme: (state, action) => {
      state.theme = action.payload
     }, 
@@ -26,7 +32,7 @@ export const colorSlice = createSlice({
   },
 })
 
-export const { setColor ,setAuth ,setTheme,setSearch} = colorSlice.actions
+export const { setColor,logOuttt ,setAuth ,setTheme,setSearch} = colorSlice.actions
 
 
 export default colorSlice.reducer

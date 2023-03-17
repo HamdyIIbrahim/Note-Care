@@ -1,13 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setTheme,setAuth,setSearch } from "./reduxToolkit/reducer";
+import { setTheme,setAuth,setSearch,logOuttt } from "./reduxToolkit/reducer";
 function LogNav() {
 
   const dispatch = useDispatch();
   const color = useSelector((state) => state.color.value);
   const selector = useSelector((state) => state.color.theme);
-  const auth = useSelector((state) => state.color.auth);
   const value = useSelector((state) => state.color.search);
   const Navigate=useNavigate();
   
@@ -18,7 +17,7 @@ function LogNav() {
   }
   function logOut(e) {
     e.preventDefault();
-    dispatch(setAuth(!auth));
+    dispatch(logOuttt(null));
     dispatch(setSearch(''));
     Navigate('/login');
   }

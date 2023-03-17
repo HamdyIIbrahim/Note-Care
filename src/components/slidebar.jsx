@@ -38,16 +38,16 @@ function Slidebar() {
         </svg>
       </Link>
       <div className="dropColors" style={{ display: show ? "none" : "" }}>
-        <button className="color" value="coral" onClick={changeColor} disabled={!auth}>
+        <button className="color" value="coral" onClick={changeColor} disabled={(localStorage.getItem('Auth'))?false:true}>
           {" "}
         </button>
-        <button className="color" value="blueviolet" onClick={changeColor} disabled={!auth}>
+        <button className="color" value="blueviolet" onClick={changeColor} disabled={(localStorage.getItem('Auth'))?false:true}>
           {" "}
         </button>
-        <button className="color" value="maroon" onClick={changeColor} disabled={!auth}>
+        <button className="color" value="maroon" onClick={changeColor} disabled={(localStorage.getItem('Auth'))?false:true}>
           {" "}
         </button>
-        <button className="color" value="mediumblue" onClick={changeColor} disabled={!auth}>
+        <button className="color" value="mediumblue" onClick={changeColor} disabled={(localStorage.getItem('Auth'))?false:true}>
           {" "}
         </button>
       </div>
