@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   value: "coral",
   auth:localStorage.getItem('Auth'),
-  theme:false,
+  theme:localStorage.setItem('theme',false),
   search:"",
   user:null
 }
@@ -24,6 +24,7 @@ export const colorSlice = createSlice({
       state.user=action.payload
     },
     setTheme: (state, action) => {
+    localStorage.setItem('theme',!state.theme);
      state.theme = action.payload
     }, 
     setSearch: (state, action) => {
